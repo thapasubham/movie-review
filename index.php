@@ -100,20 +100,19 @@ if (!$result) die("Database fetch failed: " . mysqli_error($con));
 
 
         
-          $average = mysqli_query($con, "SELECT AVG(star) AS average_star FROM review");
-          $average_result = mysqli_fetch_array($average);
-          
-          // Check if a result is obtained
-          if ($average_result['average_star']!=null  ) {
-              
-              echo "Average rating: " . $average_rating['average_star'];
-         
-          echo "<br><a href=\"movie.php?id=" . $row['movie_id'] . "\">Check Reviews</a>";
-          
-          } else {
+        $average = mysqli_query($con, "SELECT AVG(star) AS average_star FROM review WHERE movie_id={$row['movie_id']}");
+        $average_result = mysqli_fetch_array($average);
+        
+        // Check if a result is obtained
+        echo $average_result['average_star'];
+        if ($average_result['average_star'] == null) {
             echo "No reviews yet";
             echo "<br><a href=\"movie.php?id=" . $row['movie_id'] . "\">Add one</a>";
-          }
+        } else {
+            echo "Average rating: " . $average_result['average_star'];
+            echo "<br><a href=\"movie.php?id=" . $row['movie_id'] . "\">Check Reviews</a>";
+        }
+        
         echo '</div> ';
    
   

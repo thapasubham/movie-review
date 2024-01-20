@@ -83,6 +83,7 @@ $row = mysqli_fetch_assoc($result);
         }
         .comments{
             width: 50%;
+            color: white;
             margin: 0 auto;
             text-align: center;
             padding: 20px;
@@ -96,7 +97,6 @@ $row = mysqli_fetch_assoc($result);
 
         <img src="image/<?php echo $row['img_name']; ?>" alt="Movie Image">
         <p>Movie Name: <?php echo $row['movie_name']; ?></p>
-        <p>Total Copies: <?php echo $row['total_disk']; ?></p>
         <p>Genre: <?php echo $row['genre']; ?></p>
         <p>Released Year: <?php echo $row['released']; ?></p>
 
@@ -129,14 +129,16 @@ if ($review_user_row = mysqli_fetch_array($review_user_result)) {
 
 <div class="comments"
 <?php
-$other_user_review=mysqli_query($con, "SELECT * FROM review WHERE movie_id = '$id' AND NOT reviewed_by = '$user'");
-if($other = mysqli_fetch_array($other_user_review)){
+$other_user_review = mysqli_query($con, "SELECT * FROM review WHERE movie_id = $id AND NOT reviewed_by = $user");
+$other = mysqli_fetch_array($other_user_review);
+if($other ==false){
+   echo "bye";
+
+}else{
+    
     echo $other["review_msg"];
     echo $other["star"] . "<br>";
     echo $other["edit_status"];
-
-}else{
-    echo "<label>be the first one to review this movie</label>";
 }
 ?>  
 </div>
