@@ -15,7 +15,7 @@ if (isset($_POST["submit"])) {
     $file = $_FILES["image"]["tmp_name"];
     $name = $_POST['name'];
     $released =  $_POST['year'];
-    $available = $_POST['available'];
+    $bio = $_POST['bio'];
     $genre = $_POST['genre'];
 
     $file_ext = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
@@ -26,16 +26,16 @@ if (isset($_POST["submit"])) {
  }else {
     $filename = $name . '.' . $file_ext;
     $img_dir = "image/";
-    $destination = "image/" . $filename;
+    $destination = "../image/" . $filename;
     move_uploaded_file($file, $destination);
 
-    $sql = "INSERT INTO movie (movie_name, img_name,  released, total_disk, genre) values ('$name', '$filename',  '$released', '$available', '$genre')";
+    $sql = "INSERT INTO movie (movie_name, img_name,  released, about_movie, genre) values ('$name', '$filename',  '$released', '$bio', '$genre')";
 
     $result = mysqli_query($con, $sql);
     if (!$result) {
-        $_SESSION['message'] = "Update failed: " . mysqli_error($con);
+        $_SESSION['message'] = "Movie failed To: " . mysqli_error($con);
     }
-    $_SESSION['message'] = "update successfull";
+    $_SESSION['message'] = "Movie Successfully added";
     header('Location: index.php');
     exit;
 }
@@ -120,14 +120,16 @@ if (isset($_POST["submit"])) {
         <input type="text" id="year" name="year" value="" required><br>
         <p id="year_error"></p>
         <label>Available</label>
-        <input type="text" id="available" name="available" value="" required>
+        <input type="text" id="available" name="bio" value="" required>
         <p id="disk_error"></p>
 
         <label>Genre</label>
         <select name="genre">
             <option value="Comedy">Comedy</option>
             <option value="Action">Action</option>
+            <option value="Crime">Action</option>
             <option value="Thriller">Thriller</option>
+            <option value="History">Thriller</option>
         </select>
 
         <input type="submit" value="Submit" name="submit">
@@ -136,11 +138,11 @@ if (isset($_POST["submit"])) {
     <script>
         function validate() {
             var year = document.getElementById("year").value;
-            var available = document.getElementById("available").value;
+           
             var b_year = yearVal(year);
-            var b_available = diskVal(available);
+            
 
-            if (!(b_year && b_available)) {
+            if (!(b_year)) {
                 return false;
             } else {
                 return true;
@@ -161,15 +163,8 @@ if (isset($_POST["submit"])) {
             }
         }
 
-        function diskVal(available) {
-            if (isNaN(available)) {
-                document.getElementById("disk_error").innerHTML = "Disk must be a number";
-                return false;
-            } else {
-                document.getElementById("disk_error").innerHTML = "";
-                return true;
-            }
-        }
+        
+        
     </script>
 
 </body>

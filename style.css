@@ -2,13 +2,66 @@
 
 h1{
    text-shadow: 5px  pink;
-
+    text-align: center;
     margin-left: auto;
     margin-right: auto;
     padding: 10px;
 }
 
+.first-container{
+   
+    width:30%; 
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    background-color: #012324;
+    box-shadow: 0 2px 10px rgb(236, 255, 255);
 
+
+}
+.container{
+  
+    width: auto;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+   
+
+}
+label{
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="password"]{
+    width: 98%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+  input[type="submit"]{
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+input[type="submit"]:hover{
+    background-color: #0056b3;
+}
 a {
     text-align: right;
     text-decoration: none;

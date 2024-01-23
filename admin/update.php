@@ -20,6 +20,6 @@ if (isset($_POST["submit"])) {
     $_SESSION['message'] = "update successfull";
 }
 
-
+$con->close();
 header('Location: index.php');
 exit;

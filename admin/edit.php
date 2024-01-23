@@ -12,12 +12,11 @@ if (isset($_GET['id'])) {
     $sql = "SELECT * FROM movie WHERE movie_id = $movieId";
     $result = mysqli_query($con, $sql);
 
-    if (!$result) {
-        $_SESSION['message'] = "Update failed: " . mysqli_error($con);
-    }
+    
 
     $row = mysqli_fetch_assoc($result);
 } else {
+    $con->close();
 
     header('Location: index.php');
     exit;
@@ -58,7 +57,7 @@ if (isset($_GET['id'])) {
         }
 
         form {
-            max-width: 400px;
+            max-width: 500px;
             margin: 0 auto;
             padding: 20px;
             border-radius: 5px;
@@ -101,7 +100,7 @@ if (isset($_GET['id'])) {
 
 <body>
     <h1>Edit Movie</h1>
-    <img src="<?php echo "image/" . $row['img_name'] ?>" alt="idk">
+    <img src="<?php echo "../image/" . $row['img_name'] ?>" alt="idk">
     <form action="update.php" method="post" onsubmit="return validate()">
         <input type="hidden" name="movie_id" value="<?php echo $row['movie_id']; ?>">
         <label>Movie Name</label>
@@ -110,7 +109,7 @@ if (isset($_GET['id'])) {
         <input type="text" id="year" name="year" value="<?php echo $row['released']; ?>" required><br>
         <p id="year_error"></p>
         <label>Available</label>
-        <input type="text" id="available" name="available" value="<?php echo $row['total_disk']; ?>" required><br>
+        <input type="text" id="available" name="available" value="<?php echo $row['about_movie']; ?>" required><br>
         <p id="disk_error"></p>
 
         <label>Genre</label>
@@ -150,15 +149,7 @@ if (isset($_GET['id'])) {
             }
         }
 
-        function diskVal(available) {
-            if (isNaN(available)) {
-                document.getElementById("disk_error").innerHTML = "Disk must be a number";
-                return false;
-            } else {
-                document.getElementById("disk_error").innerHTML = "";
-                return true;
-            }
-        }
+      
     </script>
 
 </body>
