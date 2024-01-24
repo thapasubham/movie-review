@@ -1,2 +1,2 @@
 # movie-review
-shitty project that no one cares
+  <h1>Project done using php, html and js</h1>
