@@ -38,7 +38,9 @@ if (!$result) die("Database fetch failed: " . mysqli_error($con));
         justify-content: space-around;
         padding: 20px;
     }
-
+h3{
+    text-align: center;
+}
     .movie_box {
         width: 20%;
         height: 50%;
@@ -79,7 +81,7 @@ if (!$result) die("Database fetch failed: " . mysqli_error($con));
 </head>
 <body>
     <header>
-       <h2> Movie List</h2>
+       <h3> Movies List</h2>
 </header>
 
 <div class="outer_box">
@@ -89,7 +91,7 @@ if (!$result) die("Database fetch failed: " . mysqli_error($con));
         // <div class="row"><?php
         echo '<div class="movie_box">';
        
-        echo '<img class="image" src="image/' . $row["img_name"] . '"><br>';
+        echo '<img class="image" src="image/' . $row["img_name"] . '" alt =" ' . $row["movie_name"] . '"><br>';
 
         echo '<p class="movie_name">' . $row["movie_name"] . '</p>';
         echo '<p class="year">Releases: ' . $row["released"] . '</p>';

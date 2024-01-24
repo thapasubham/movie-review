@@ -23,6 +23,7 @@ if (isset($_POST['submit'])) {
 
                 header("Location:". $_SESSION['url']);
                 exit();
+                unset($_SESSION['url']);
             } else {
                 $error = "Invalid Password";
             }

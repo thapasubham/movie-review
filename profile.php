@@ -7,9 +7,10 @@ if (isset($_SESSION["error_deleting"])) {
 }
 
 if (!isset($_SESSION['user_id'])) {
-    header("Location: info.html");
+    header("Location: index.php");
     exit();
-}$result = mysqli_query($con, "SELECT * FROM members WHERE m_id=" . $_SESSION['user_id']);
+}
+$result = mysqli_query($con, "SELECT * FROM members WHERE m_id=" . $_SESSION['user_id']);
 $row = mysqli_fetch_assoc($result);
 ?>
 <!DOCTYPE html>
@@ -34,11 +35,13 @@ $row = mysqli_fetch_assoc($result);
             margin-left: auto;
             margin-right: auto;
             align-items: center;
-            height: 100vh;
+            height: 500px;
             background-color: #042425;
         }
 
-
+h2{
+    text-align: center;
+}
 
         label {
             display: block;
@@ -98,7 +101,9 @@ $row = mysqli_fetch_assoc($result);
 
 <body>
 
-   
+   <header>
+    <h2>Update Your Profile</h3>
+    </header>
 
 
     <div class="container">

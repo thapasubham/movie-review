@@ -54,14 +54,20 @@ if (isset($_POST["submit"])) {
     <title>Document</title>
     <style>
         body {
-            background-color: #020223;
+            background-color: #042425;
             color: #fff;
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
         }
-
-
+.form-box{
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #040f25;
+            box-shadow: 0 0 5px rgba(200, 255, 100, 0.21);
+            width: 25%;
+            margin: 10px auto;
+}
         h1 {
             text-align: center;
             margin-top: 20px;
@@ -72,8 +78,7 @@ if (isset($_POST["submit"])) {
             margin: 0 auto;
             padding: 20px;
             border-radius: 5px;
-            border: 1px solid #666;
-            box-shadow: 0 2px 4px rgb(f, f, f);
+           
         }
 
         label {
@@ -110,7 +115,7 @@ if (isset($_POST["submit"])) {
 
 <body>
     <h1>Add Movie</h1>
-
+<div class="form-box">
     <form action="add.php" method="post" enctype="multipart/form-data">
         <label>Movie Name</label>
         <input type="text" name="name" value="" required> <br>
@@ -129,12 +134,12 @@ if (isset($_POST["submit"])) {
             <option value="Action">Action</option>
             <option value="Crime">Action</option>
             <option value="Thriller">Thriller</option>
-            <option value="History">Thriller</option>
+            <option value="History">Si-Fi</option>
         </select>
 
         <input type="submit" value="Submit" name="submit">
     </form>
-
+    </div>
     <script>
         function validate() {
             var year = document.getElementById("year").value;

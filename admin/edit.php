@@ -33,12 +33,11 @@ if (isset($_GET['id'])) {
 
     <style>
         body {
-            background-color: #020223;
-            color: #fff;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
+            background-color: #042425;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 
 
         h1 {
@@ -56,15 +55,15 @@ if (isset($_GET['id'])) {
             display: block;
         }
 
-        form {
-            max-width: 500px;
-            margin: 0 auto;
+        .real {
             padding: 20px;
             border-radius: 5px;
-            border: 1px solid #666;
-            box-shadow: 0 2px 4px rgb(f, f, f);
-        }
+            background-color: #040f25;
+            box-shadow: 0 0 5px rgba(200, 255, 100, 0.21);
+            width: 40%;
+            margin: 10px auto;
 
+        }
         label {
             display: block;
             font-weight: bold;
@@ -100,6 +99,7 @@ if (isset($_GET['id'])) {
 
 <body>
     <h1>Edit Movie</h1>
+    <div class="real">
     <img src="<?php echo "../image/" . $row['img_name'] ?>" alt="idk">
     <form action="update.php" method="post" onsubmit="return validate()">
         <input type="hidden" name="movie_id" value="<?php echo $row['movie_id']; ?>">
@@ -118,7 +118,7 @@ if (isset($_GET['id'])) {
         </select>
         <input type="submit" value="Update" name="submit">
     </form>
-
+    </div>
     <script>
         function validate() {
             const year = document.getElementById("year").value;

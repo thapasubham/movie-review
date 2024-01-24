@@ -42,7 +42,7 @@ if (isset($_SESSION['message'])) {
             text-align: center;
             background-color: #040f25;
             box-shadow: 0 0 5px rgba(200, 255, 100, 0.21);
-            width: 50%;
+            width: 40%;
             margin: 10px auto;
 
         }
@@ -66,12 +66,16 @@ if (isset($_SESSION['message'])) {
         #movie a:hover {
             color: #00aaff;
         }
+        h1{
+            text-align: center;
+        }
     </style>
 </head>
 
 <body>
+<h1>Select Movie to Edit</h1>
     <div class="real">
-        <h1>Select Movie to Edit</h1>
+      
         <div class="view">
 
             <?php while ($row = mysqli_fetch_assoc($result)) : ?>

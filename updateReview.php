@@ -2,7 +2,6 @@
 include_once("admin/dbcon.php");
 session_start();
 if (!isset($_SESSION['user_id'])) {
-    header("Location: info.html");
     exit();
 }
 
@@ -19,8 +18,8 @@ $date = date("Y-m-d");
 
 //echo $m_id;
 echo "before inserting";
-$query = "INSERT INTO review (reviewed_by, movie_id, review_date, review_msg, star) 
-VALUES ( '$user', '$m_id', '$date', '$review', '$star')";
+$query = "UPDATE review SET reviewed_by='$user', review_date='$date', review_msg='$review', star='$star'
+             WHERE review_id='$_id'";
 $result = mysqli_query($con, $query);
 echo "after inserting";
 if(!$result){ echo "inside if else";
