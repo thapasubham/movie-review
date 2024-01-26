@@ -152,20 +152,19 @@ text-align:left;
 
     </div>    
 <div class="comments"> 
-
-
-       
-     
+    
 <?php 
 
 
     ?>
     <div class="comments-box">
         <div class="each-comment" >
-        <form method="post" action="updateAdd.php">
+        <form method="post" action="updateReview.php">
         <label>Add your review</label>
         <input type="text" name="review" value="<?php echo $row['review_msg'];?>"required>
         <input type="hidden" name="movie_id" value=" <?php echo $row['movie_id'];?>">
+        <input type="hidden" name="r_id" value=" <?php echo $id?>">
+
         <select name="star"  required>
 								<option value="1">1</option>
 								<option value="2">2</option>

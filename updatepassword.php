@@ -34,3 +34,4 @@ if (isset($_POST["password"])) {
         }
     }
 }
+$con->close();

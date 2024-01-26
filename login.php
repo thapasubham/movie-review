@@ -82,7 +82,7 @@ if (isset($_POST['submit'])) {
                     <input type="submit" name="submit" value="Login">
                     <p><a href="info.html">Login Later</a></p>
 
-                    <p><a href="register.html">Register Now</a></p>
+                    <p><a href="register.php">Register Now</a></p>
                 </div>
             </form>
         </div>
