@@ -41,6 +41,7 @@ if (!$result) die("Database fetch failed: " . mysqli_error($con));
 h3{
     text-align: center;
 }
+
     .movie_box {
         width: 20%;
         height: 50%;
@@ -71,6 +72,7 @@ h3{
     .image {
         max-width: 100%; 
         max-height: 200px;
+        border-radius: 5px;
         margin-top: 5px; 
     }
     .link{

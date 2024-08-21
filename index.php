@@ -1,7 +1,7 @@
 <?php
+
 include_once('header.php');
 $_SESSION['url'] = $_SERVER['REQUEST_URI'];
-
 
 ?>
 
@@ -13,8 +13,11 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI'];
     <link rel="stylesheet" type="text/css" href="body.css">
     <link rel="stylesheet" type="text/css" href="style.css">
     <style>
-       /* style.css */
+       /* style*/
 
+.welcome{
+    text-align: left;
+}
 
 .movie-list {
     text-align: center;
@@ -53,6 +56,9 @@ p{
 
 <body>
 
+<div class ="welcome">
+    <p>Welcome</p>
+</div>
     <div class="movie-list">
         
         <img src="image/Drive.jpeg">
@@ -60,6 +66,7 @@ p{
     </div>
 
     <p>Review and Rate movies</p></div>
+
 
 </body>
 

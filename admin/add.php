@@ -124,7 +124,7 @@ if (isset($_POST["submit"])) {
         <label>Released Year</label>
         <input type="text" id="year" name="year" value="" required><br>
         <p id="year_error"></p>
-        <label>Available</label>
+        <label>About Movie</label>
         <input type="text" id="available" name="bio" value="" required>
         <p id="disk_error"></p>
 

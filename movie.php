@@ -187,7 +187,7 @@ if ($review_user_row = mysqli_fetch_array($review_user_result)) {
         <label>Add your review</label>
         <input type="text" name="review" required>
         <input type="hidden" name="movie_id" value=" <?php echo $id; ?>">
-        <select name="star" required>
+        Rating <select name="star" required>
 								<option value="1">1</option>
 								<option value="2">2</option>
 								<option value="3">3</option>

@@ -80,7 +80,7 @@ if (isset($_POST['submit'])) {
                 <input type="password" id="password" name="password" required>
                 <div class="algner">
                     <input type="submit" name="submit" value="Login">
-                    <p><a href="info.html">Login Later</a></p>
+                    <p><a href="index.php">Login Later</a></p>
 
                     <p><a href="register.php">Register Now</a></p>
                 </div>

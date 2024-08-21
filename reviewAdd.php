@@ -2,7 +2,7 @@
 include_once("admin/dbcon.php");
 session_start();
 if (!isset($_SESSION['user_id'])) {
-    header("Location: info.html");
+    header("Location: index.php");
     exit();
 }
 
@@ -35,3 +35,4 @@ if(!$result){ echo "inside if else";
 header("Location: movie.php?id=".$m_id);
 $con->close();
 ?>
+
